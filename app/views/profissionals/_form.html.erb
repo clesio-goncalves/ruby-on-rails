@@ -1,0 +1,46 @@
+<% if @profissional.errors.any? %>
+    <div id="error_explanation">
+        Há erros no formulário, por favor verifique.
+    </div>
+<% end %>
+
+<%= form_for @profissional do |p| %>
+    <p>
+        <%= p.label :nome %>
+        <%= p.text_field :nome %>
+        <%= error_tag @profissional, :nome %>
+    </p>
+    <p>
+        <%= p.label :telefone %>
+        <%= p.text_field :telefone %>
+    </p>
+    <p>
+        <%= p.label :email %>
+        <%= p.text_field :email %>
+        <%= error_tag @profissional, :email %>
+    </p>
+    <p>
+        <%= p.label :especialidade %>
+        <%= p.text_field :especialidade %>
+        <%= error_tag @profissional, :especialidade %>
+    </p>
+    <p>
+        <%= p.label :registro %>
+        <%= p.text_field :registro %>
+        <%= error_tag @profissional, :registro %>
+    </p>
+    <p>
+        <%= p.label :password %>
+        <%= p.password_field :password %>
+        <%= error_tag @profissional, :password %>
+    </p>
+    <p>
+        <%= p.label :password_confirmation %>
+        <%= p.password_field :password_confirmation %>
+        <%= error_tag @profissional, :password_confirmation %>
+    </p>
+    <p>
+        <%= p.submit %>
+    </p>
+
+<% end %>

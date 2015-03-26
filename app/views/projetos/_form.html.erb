@@ -1,0 +1,31 @@
+<% if @projeto.errors.any? %>
+    <div id="error_explanation">
+        Há erros no formulário, por favor verifique.
+    </div>
+<% end %>
+
+<%= form_for @projeto do |p| %>
+    <p>
+        <%= p.label :nome %>
+        <%= p.text_field :nome %>
+        <%= error_tag @projeto, :nome %>
+    </p>
+    <p>
+        <%= p.label :descricao %>
+        <%= p.text_area :descricao %>
+        <%= error_tag @projeto, :descricao %>
+    </p>
+    <p>
+        <%= p.label :valor %>
+        <%= p.text_field :valor %>
+        <%= error_tag @projeto, :valor %>
+    </p>
+    <p>
+        <%= p.label :validade_anos %>
+        <%= p.text_field :validade_anos %>
+        <%= error_tag @projeto, :validade_anos %>
+    </p>
+    <p>
+        <%= p.submit %>
+    </p>
+<% end %>

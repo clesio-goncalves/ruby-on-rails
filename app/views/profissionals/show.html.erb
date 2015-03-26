@@ -1,0 +1,8 @@
+<h1>Profisional: <%= @profissional.nome%></h1>
+<ul>
+    <li>Especialidade: <%= @profissional.especialidade %></li>
+    <li>Registro: <%= @profissional.registro %></li>
+</ul>
+
+<%= link_to 'Editar Profissional', edit_profissional_path(@profissional) %> | 
+<%= link_to 'Home', root_path %>

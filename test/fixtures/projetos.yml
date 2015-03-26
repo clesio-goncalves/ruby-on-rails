@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nome: MyString
+  descricao: MyText
+  conclusao: MyText
+  valor: 1.5
+  validade_anos: 
+
+two:
+  nome: MyString
+  descricao: MyText
+  conclusao: MyText
+  valor: 1.5
+  validade_anos: 

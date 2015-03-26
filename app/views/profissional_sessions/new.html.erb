@@ -1,0 +1,25 @@
+<h1>Login</h1>
+
+<% if @session.errors.has_key? :base %>
+    <div id="error_explanation">
+        <%= @session.errors[:base].join(', ') %>
+    </div>
+<% end %>
+
+<%= form_for @session do |f| %>
+    <p>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+        <%= error_tag @session, :email %>
+    </p>
+    <p>
+        <%= f.label :senha %>
+        <%= f.password_field :senha %>
+        <%= error_tag @session, :senha %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
+<% end %>
+
+<p><%= link_to 'Cadastre-se', new_profissional_path %></p>

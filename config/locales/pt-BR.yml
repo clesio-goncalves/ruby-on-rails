@@ -1,0 +1,24 @@
+pt-BR:
+    activerecord:
+        models:
+            profissional: Profissional
+            projeto: Projeto
+        attributes:
+            profissional:
+                password: Senha
+                password_confirmation: Confirme sua senha
+            projeto:
+                descricao: Descrição
+                validade_anos: Validade em anos
+    activemodel:
+        attributes:
+            profissional_session:
+                email: Email
+                senha: Senha
+        errors:
+            messages:
+                invalid_login: 'Usuário ou senha inválidos'
+    helpers:
+        submit:
+            profissional_session:
+                create: 'Entrar'
