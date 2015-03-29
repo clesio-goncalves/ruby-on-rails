@@ -1,17 +1,13 @@
 Trabalho::Application.routes.draw do
 
-  scope "(:locate)", :locate => /en|pt\-BR/ do
+  resources :profissionals
 
-    resources :profissionals
+  resources :projetos
 
-    resources :projetos
+  resources :confirmation, :only => [:show]
 
-    resources :confirmation, :only => [:show]
+  resources :profissional_sessions, :only => [:create, :new, :destroy]
 
-    resources :profissional_sessions, :only => [:create, :new, :destroy]
-
-  end
-  
   root :to => 'home#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
