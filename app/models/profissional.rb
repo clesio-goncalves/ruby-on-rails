@@ -14,4 +14,12 @@ class Profissional < ActiveRecord::Base
 
   has_secure_password
 
+  scope :login, where('email IS NOT NULL')
+
+  def self.authenticate(email, password)
+    login.
+    find_by_email(email).
+    try(:authenticate, password)
+  end
+
 end

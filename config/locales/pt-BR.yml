@@ -10,6 +10,8 @@ pt-BR:
             projeto:
                 descricao: Descrição
                 validade_anos: Validade em anos
+            singupmailer:
+                confirm_email:
     activemodel:
         attributes:
             profissional_session:

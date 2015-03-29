@@ -7,13 +7,12 @@ class ProfissionalSessionsController < ApplicationController
         @session = ProfissionalSession.new(session, params[:profissional_session])
 
         if @session.authenticate
-            redirect_to root_path, :notice => '##'
+            redirect_to root_path, :notice => 'Login efetuado com sucesso!'
         else
             render :new
         end
     end
 
     def destroy
-
     end
 end
