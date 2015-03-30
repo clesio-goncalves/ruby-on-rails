@@ -11,12 +11,11 @@
     <header>
         <div id="header-wrap">
             <h1><%= link_to "Ruby on Rails", root_path %></h1>
-            <nav>
-                <ul>
-                    <li><%= link_to "Projetos", new_projeto_path %></li>
-                    <li><%= link_to "Profissionais", new_profissional_path %></li>
-                </ul>
-            </nav>
+            <% if profissional_signed_in? %>
+                <%= render '/layouts/profissional_navbar' %>
+            <% else %>
+                <%= render '/layouts/visitante_navbar' %>
+            <% end %>
         </div>
     </header>
 

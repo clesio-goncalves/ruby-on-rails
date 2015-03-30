@@ -1,5 +1,10 @@
 class ProjetosController < ApplicationController
 
+    def index
+
+
+    end
+
     def new
         @projeto = Projeto.new
     end

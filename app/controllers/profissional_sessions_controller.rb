@@ -1,4 +1,5 @@
 class ProfissionalSessionsController < ApplicationController
+    
     def new
         @session = ProfissionalSession.new(session)
     end
@@ -14,5 +15,7 @@ class ProfissionalSessionsController < ApplicationController
     end
 
     def destroy
+        profissional_session.destroy
+        redirect_to root_path, :notice => 'Logout efetuado com sucesso!'
     end
 end

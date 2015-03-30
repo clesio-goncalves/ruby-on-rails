@@ -36,4 +36,20 @@ class ProfissionalSession
         false
     end
 
+    # Métodos da sessão de profissional
+
+    # retorna o profissional da sessão
+    def current_profissional
+        Profissional.find(@session[:profissional_id])
+    end
+
+    # profissional possui uma sessão autenticada?
+    def profissional_signed_in?
+        @session[:profissional_id].present?
+    end
+
+    def destroy
+        @session[:profissional_id] = nil
+    end
+
 end
