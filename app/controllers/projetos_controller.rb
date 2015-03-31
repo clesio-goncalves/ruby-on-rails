@@ -1,8 +1,10 @@
 class ProjetosController < ApplicationController
 
+    before_filter :requer_autenticacao, 
+    :only => [:index, :new, :create, :show, :edit, :update]
+
     def index
-
-
+        @projeto = Projeto.all
     end
 
     def new
@@ -35,6 +37,14 @@ class ProjetosController < ApplicationController
         else
             render :edit
         end
+    end
+
+
+    def destroy
+        @projeto = Projeto.find(params[:id])
+        @projeto.destroy
+
+        redirect_to projetos_url
     end
     
 end

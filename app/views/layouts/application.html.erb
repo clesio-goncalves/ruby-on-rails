@@ -11,7 +11,7 @@
     <header>
         <div id="header-wrap">
             <h1><%= link_to "Ruby on Rails", root_path %></h1>
-            <% if profissional_signed_in? %>
+            <% if profissional_autenticado? %>
                 <%= render '/layouts/profissional_navbar' %>
             <% else %>
                 <%= render '/layouts/visitante_navbar' %>

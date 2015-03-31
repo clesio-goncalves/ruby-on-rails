@@ -2,7 +2,7 @@
     <ul>
         <li><%= link_to "Cadastrar Projetos", new_projeto_path %></li>
         <li><%= link_to "Projetos", projetos_path %></li>
-        <li><%= link_to "Meu perfil", profissional_path(current_profissional) %></li>
+        <li><%= link_to "Meu perfil", profissional_path(profissional_da_sessao) %></li>
         <li><%= link_to "Sair", profissional_sessions_path, :method => :delete %></li>
     </ul>
 </nav>

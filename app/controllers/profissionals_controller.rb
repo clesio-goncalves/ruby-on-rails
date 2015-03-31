@@ -1,5 +1,8 @@
 class ProfissionalsController < ApplicationController
 
+    before_filter :nao_requer_autenticacao, :only => [:new, :create]
+    before_filter :outro_profissional, :only => [:edit, :update, :show]
+
     def new
         @profissional = Profissional.new
     end
@@ -31,4 +34,20 @@ class ProfissionalsController < ApplicationController
             render :edit
         end
     end
+
+    # Não permite a vizualização e edição do perfil dos outros profissionais
+
+    private 
+
+    def outro_profissional
+        unless profissional_autenticado? && profissional_da_sessao == profissional
+            redirect_to profissional_da_sessao, 
+            :alert => 'Não é pertida a vizualização e edição do perfil alheio!'
+        end
+    end
+
+    def profissional
+        @profissional ||= Profissional.find(params[:id])
+    end
+
 end

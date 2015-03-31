@@ -15,7 +15,7 @@ pt-BR:
     activemodel:
         attributes:
             profissional_session:
-                email: Email
+                email: E-mail
                 senha: Senha
         errors:
             messages:

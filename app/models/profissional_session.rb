@@ -21,14 +21,14 @@ class ProfissionalSession
         profissional = Profissional.authenticate(@email, @password)
 
         if profissional.present?
-            store(profissional)
+            grava_na_sessao(profissional)
         else
             errors.add(:base, :invalid_login)
             false
         end
     end
 
-    def store(profissional)
+    def grava_na_sessao(profissional)
         @session[:profissional_id] = profissional.id
     end
 
@@ -39,12 +39,12 @@ class ProfissionalSession
     # Métodos da sessão de profissional
 
     # retorna o profissional da sessão
-    def current_profissional
+    def profissional_da_sessao
         Profissional.find(@session[:profissional_id])
     end
 
     # profissional possui uma sessão autenticada?
-    def profissional_signed_in?
+    def profissional_autenticado?
         @session[:profissional_id].present?
     end
 

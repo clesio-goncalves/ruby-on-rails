@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-    delegate :current_profissional, :profissional_signed_in?, :to => :profissional_session
-    helper_method :current_profissional, :profissional_signed_in?
+    delegate :profissional_da_sessao, :profissional_autenticado?, :to => :profissional_session
+    helper_method :profissional_da_sessao, :profissional_autenticado?
     
     protect_from_forgery
 
@@ -8,14 +8,17 @@ class ApplicationController < ActionController::Base
         ProfissionalSession.new(session)
     end
 
-    def require_authentication
-        unless profissional_signed_in?
+    def requer_autenticacao
+        unless profissional_autenticado?
             redirect_to new_profissional_sessions_path,
             :alert => 'Para continuar, você precisa estar logado!'
         end
     end
 
-    def require_no_authentication
-        redirect_to root_path if profissional_signed_in?
+    def nao_requer_autenticacao
+        if profissional_autenticado?
+            redirect_to root_path, 
+            :alert => 'Para continuar, você não pode estar logado!'
+        end        
     end
 end
