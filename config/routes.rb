@@ -1,10 +1,12 @@
 Trabalho::Application.routes.draw do
 
-    resources :profissionals
+  resources :profissionals
 
-    resources :projetos
+  resources :projetos
+
+  resources :empresas
     
-    resource :profissional_sessions, :only => [:create, :new, :destroy]
+  resource :profissional_sessions, :only => [:create, :new, :destroy]
 
   root :to => 'home#index'
   # The priority is based upon order of creation:

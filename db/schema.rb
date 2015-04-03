@@ -11,7 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150320222543) do
+ActiveRecord::Schema.define(:version => 20150403191701) do
+
+  create_table "empresas", :force => true do |t|
+    t.string   "cnpj"
+    t.string   "inscricao_estadual"
+    t.string   "nome_empresarial"
+    t.string   "nome_fantasia"
+    t.integer  "grau_risco"
+    t.string   "cnae"
+    t.text     "atividade_principal"
+    t.string   "telefone"
+    t.string   "email"
+    t.string   "cep"
+    t.string   "nome_logradouro"
+    t.integer  "numero_logradouro"
+    t.string   "bairro"
+    t.string   "uf"
+    t.string   "cidade"
+    t.string   "complemento"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "empresas", ["cnpj"], :name => "index_empresas_on_cnpj"
+  add_index "empresas", ["email"], :name => "index_empresas_on_email"
 
   create_table "profissionals", :force => true do |t|
     t.string   "nome"

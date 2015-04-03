@@ -1,0 +1,93 @@
+<% if @empresa.errors.any? %>
+    <div id="error_explanation">
+        Há erros no formulário, por favor verifique.
+    </div>
+<% end %>
+
+<%= form_for @empresa do |e| %>
+    <p>
+        <%= e.label :cnpj %>
+        <%= e.text_field :cnpj %>
+        <%= error_tag @empresa, :cnpj %>
+    </p>
+    <p>
+        <%= e.label :inscricao_estadual %>
+        <%= e.text_field :inscricao_estadual %>
+        <%= error_tag @empresa, :inscricao_estadual %>
+    </p>
+    <p>
+        <%= e.label :nome_empresarial %>
+        <%= e.text_field :nome_empresarial %>
+        <%= error_tag @empresa, :nome_empresarial %>
+    </p>
+    <p>
+        <%= e.label :nome_fantasia %>
+        <%= e.text_field :nome_fantasia %>
+        <%= error_tag @empresa, :nome_fantasia %>
+    </p>
+    <p>
+        <%= e.label :grau_risco %>
+        <%= e.text_field :grau_risco %>
+        <%= error_tag @empresa, :grau_risco %>
+        <!-- Alterar o tipo de campo aqui -->
+    </p>
+    <p>
+        <%= e.label :cnae %>
+        <%= e.text_field :cnae %>
+        <%= error_tag @empresa, :cnae %>
+    </p>
+    <p>
+        <%= e.label :atividade_principal %>
+        <%= e.text_area :atividade_principal %>
+        <%= error_tag @empresa, :atividade_principal %>
+    </p>
+    <p>
+        <%= e.label :telefone %>
+        <%= e.text_field :telefone %>
+        <%= error_tag @empresa, :telefone %>
+    </p>
+    <p>
+        <%= e.label :email %>
+        <%= e.text_field :email %>
+        <%= error_tag @empresa, :email %>
+    </p>
+    <p>
+        <%= e.label :cep %>
+        <%= e.text_field :cep %>
+        <%= error_tag @empresa, :cep %>
+    </p>
+    <p>
+        <%= e.label :nome_logradouro %>
+        <%= e.text_field :nome_logradouro %>
+        <%= error_tag @empresa, :nome_logradouro %>
+    </p>
+    <p>
+        <%= e.label :numero_logradouro %>
+        <%= e.text_field :numero_logradouro %>
+        <%= error_tag @empresa, :numero_logradouro %>
+    </p>
+    <p>
+        <%= e.label :bairro %>
+        <%= e.text_field :bairro %>
+        <%= error_tag @empresa, :bairro %>
+    </p>
+    <p>
+        <%= e.label :uf %>
+        <%= e.text_field :uf %>
+        <%= error_tag @empresa, :uf %>
+        <!-- Alterar o tipo de campo aqui -->
+    </p>
+    <p>
+        <%= e.label :cidade %>
+        <%= e.text_field :cidade %>
+        <%= error_tag @empresa, :cidade %>
+    </p>
+    <p>
+        <%= e.label :complemento %>
+        <%= e.text_field :complemento %>
+        <%= error_tag @empresa, :complemento %>
+    </p>
+    <p>
+        <%= e.submit %>
+    </p>
+<% end %>

@@ -10,8 +10,18 @@ pt-BR:
             projeto:
                 descricao: Descrição
                 validade_anos: Validade em anos
-            singupmailer:
-                confirm_email:
+            empresa:
+                cnpj: CNPJ
+                inscricao_estadual: Inscrição Estadual
+                nome_empresarial: Nome Empresarial
+                nome_fantasia: Nome Fantasia
+                grau_risco: Grau de Risco
+                cnae: CNAE
+                atividade_principal: Atividade Principal
+                cep: CEP
+                nome_logradouro: Nome do Logradouro
+                numero_logradouro: Número do Logradouro
+                uf: UF
     activemodel:
         attributes:
             profissional_session:

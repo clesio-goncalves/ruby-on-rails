@@ -1,7 +1,7 @@
 class ProfissionalsController < ApplicationController
 
     before_filter :nao_requer_autenticacao, :only => [:new, :create]
-    before_filter :outro_profissional, :only => [:edit, :update, :show]
+    before_filter :pode_alterar, :only => [:edit, :update]
 
     def new
         @profissional = Profissional.new
@@ -39,10 +39,10 @@ class ProfissionalsController < ApplicationController
 
     private 
 
-    def outro_profissional
+    def pode_alterar
         unless profissional_autenticado? && profissional_da_sessao == profissional
-            redirect_to profissional_da_sessao, 
-            :alert => 'Não é pertida a vizualização e edição do perfil alheio!'
+            redirect_to Profissional.find(params[:id]),
+            :alert => 'Não é pertida a edição do perfil alheio!'
         end
     end
 

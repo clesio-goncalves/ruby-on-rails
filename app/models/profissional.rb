@@ -10,6 +10,7 @@ class Profissional < ActiveRecord::Base
   validates_length_of :telefone, :maximum => 13, :allow_blank => true
 
   validates_format_of :email, :with => /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
+  
   validates_uniqueness_of :email, :registro
 
   has_secure_password

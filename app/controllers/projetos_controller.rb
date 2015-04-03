@@ -1,7 +1,7 @@
 class ProjetosController < ApplicationController
 
     before_filter :requer_autenticacao, 
-    :only => [:index, :new, :create, :show, :edit, :update]
+    :only => [:new, :create, :edit, :update, :destroy]
 
     def index
         @projeto = Projeto.all
