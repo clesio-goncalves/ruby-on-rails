@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150403191701) do
+ActiveRecord::Schema.define(:version => 20150406225429) do
+
+  create_table "elaboracaos", :force => true do |t|
+    t.integer  "projeto_id"
+    t.integer  "empresa_id"
+    t.integer  "profissional_id"
+    t.date     "data_elaboracao"
+    t.text     "conclusao"
+    t.text     "recomendacoes"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "elaboracaos", ["empresa_id"], :name => "index_elaboracaos_on_empresa_id"
+  add_index "elaboracaos", ["profissional_id"], :name => "index_elaboracaos_on_profissional_id"
+  add_index "elaboracaos", ["projeto_id", "empresa_id", "profissional_id", "data_elaboracao"], :name => "profissional_elabora_projeto_empresa_data", :unique => true
+  add_index "elaboracaos", ["projeto_id"], :name => "index_elaboracaos_on_projeto_id"
 
   create_table "empresas", :force => true do |t|
     t.string   "cnpj"
@@ -32,10 +48,12 @@ ActiveRecord::Schema.define(:version => 20150403191701) do
     t.string   "complemento"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.integer  "profissional_id"
   end
 
   add_index "empresas", ["cnpj"], :name => "index_empresas_on_cnpj"
   add_index "empresas", ["email"], :name => "index_empresas_on_email"
+  add_index "empresas", ["profissional_id"], :name => "index_empresas_on_profissional_id"
 
   create_table "profissionals", :force => true do |t|
     t.string   "nome"
@@ -56,10 +74,12 @@ ActiveRecord::Schema.define(:version => 20150403191701) do
     t.text     "descricao"
     t.float    "valor"
     t.integer  "validade_anos"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "profissional_id"
   end
 
   add_index "projetos", ["nome"], :name => "index_projetos_on_nome"
+  add_index "projetos", ["profissional_id"], :name => "index_projetos_on_profissional_id"
 
 end

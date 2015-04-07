@@ -1,5 +1,12 @@
 class Profissional < ActiveRecord::Base
-  attr_accessible   :email, :especialidade, :nome, :registro, :password, 
+
+  has_many :projetos, :dependent => :destroy
+  has_many :empresas, :dependent => :destroy
+  
+  # Um profissional possui muitas elaborações
+  has_many :elaboracaos, :dependent => :destroy
+
+  attr_accessible   :email, :especialidade, :nome, :registro, :password,
                     :telefone, :password_confirmation
 
   validates_presence_of :email, :especialidade, :nome, :registro, :password, :password_confirmation
@@ -22,5 +29,4 @@ class Profissional < ActiveRecord::Base
     find_by_email(email).
     try(:authenticate, password)
   end
-
 end

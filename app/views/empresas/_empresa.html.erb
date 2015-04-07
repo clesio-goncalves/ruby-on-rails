@@ -1,0 +1,44 @@
+<article class="projeto_empresa">
+    <h2><%= link_to empresa.nome_empresarial + " (" + empresa.nome_fantasia + ")", empresa %></h2>
+    <span>
+        <%= t '.proprietario_html',
+            :proprietario => empresa.profissional.nome,
+            :quando => l(empresa.created_at, :format => :short) %>
+    </span>
+
+    <p>CNPJ: <%= empresa.cnpj %></p>
+    <p>Grau de risco: <%= empresa.grau_risco %></p>
+    <p>CNAE: <%= empresa.cnae %></p>
+    <p>Atividade Principal: <%= empresa.atividade_principal %></p>
+    <p>Email: <%= empresa.email %></p>    
+
+    <% palavra = empresa.nome_logradouro + ", " + 
+                empresa.numero_logradouro.to_s + " - " +
+                empresa.bairro + ". " +
+                empresa.cidade + "-" + empresa.uf + ". " +
+                empresa.cep + ". " +
+                empresa.complemento
+    %>
+
+    <% palavra1 = empresa.nome_fantasia + ". " + palavra + ". Brasil" %>
+
+    <p>
+        <span>
+            Endereço: 
+            <%= link_to palavra, 
+                "https://maps.google.com/?q=#{palavra1}",
+                :target => :blank
+            %>
+        </span>
+    </p>
+
+    <% if belongs_to_profissional(empresa) %>
+        <ul>
+            <li><%= link_to "Editar", edit_empresa_path(empresa) %></li>
+            <li><%= link_to "Remover", empresa_path(empresa),
+                        :method => :delete, :data => 
+                        {:confirm => 'Você tem certeza que quer remover?'}
+                %></li>
+        </ul>
+    <% end %>
+</article>

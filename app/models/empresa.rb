@@ -1,4 +1,12 @@
 class Empresa < ActiveRecord::Base
+
+  belongs_to :profissional, :dependent => :destroy
+
+  # Uma empresa possui muitas elaborações
+  has_many :elaboracaos, :dependent => :destroy
+
+  INTERVALO = (1..4).to_a
+
   attr_accessible :atividade_principal, :bairro, :cep, :cidade, 
   :cnae, :cnpj, :complemento, :email, :grau_risco, :inscricao_estadual, 
   :nome_empresarial, :nome_fantasia, :nome_logradouro, 
@@ -13,8 +21,7 @@ class Empresa < ActiveRecord::Base
   validates_length_of :nome_empresarial, :nome_logradouro, :maximum => 100, :allow_blank => false
   validates_length_of :nome_fantasia, :maximum => 100, :allow_blank => true
 
-  validates_length_of :grau_risco, :is => 1, :allow_blank => false
-  validates_numericality_of :grau_risco, :only_integer => true, :allow_nil => false
+  validates_inclusion_of :grau_risco, :in => INTERVALO
   ######
 
   validates_length_of :cnae, :cep, :maximum => 10, :allow_blank => false

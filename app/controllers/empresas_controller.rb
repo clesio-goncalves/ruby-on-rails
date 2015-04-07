@@ -4,15 +4,15 @@ class EmpresasController < ApplicationController
     :only => [:new, :create, :edit, :update, :destroy]
 
     def index
-        @empresa = Empresa.all
+        @empresas = Empresa.all
     end
 
     def new
-        @empresa = Empresa.new
+        @empresa = profissional_da_sessao.empresas.build
     end
 
     def create
-        @empresa = Empresa.new(params[:empresa])
+        @empresa = profissional_da_sessao.empresas.build(params[:empresa])
 
         if @empresa.save
             redirect_to @empresa, :notice => 'Empresa criada com sucesso!'
@@ -26,11 +26,11 @@ class EmpresasController < ApplicationController
     end
 
     def edit
-        @empresa = Empresa.find(params[:id])
+        @empresa = profissional_da_sessao.empresas.find(params[:id])
     end
 
     def update
-        @empresa = Empresa.find(params[:id])
+        @empresa = profissional_da_sessao.empresas.find(params[:id])
 
         if @empresa.update_attributes(params[:empresa])
             redirect_to @empresa, :notice => 'Empresa atualizada com sucesso!'
@@ -40,7 +40,7 @@ class EmpresasController < ApplicationController
     end
 
     def destroy
-        @empresa = Empresa.find(params[:id])
+        @empresa = profissional_da_sessao.empresas.find(params[:id])
         @empresa.destroy
 
         redirect_to empresas_url

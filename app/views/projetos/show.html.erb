@@ -1,9 +1,1 @@
-<h1>Projeto: <%= @projeto.nome %></h1>
-<ul>
-    <li>Descrição: <%= @projeto.descricao %></li>
-    <li>Valor: <%= @projeto.valor %></li>
-    <li>Validade em anos: <%= @projeto.validade_anos %></li>
-</ul>
-
-<%= link_to 'Editar Projeto', edit_projeto_path(@projeto) %> | 
-<%= link_to 'Home', root_path %>
+<%= render @projeto %>

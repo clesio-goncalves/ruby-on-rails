@@ -1,4 +1,11 @@
 class Projeto < ActiveRecord::Base
+
+  belongs_to :profissional, :dependent => :destroy
+  
+  # Um projeto possui muitas elaborações
+  has_many :elaboracaos, :dependent => :destroy
+  has_many :elaboracaos_projetos, :through => :elaboracaos, :source => :projeto
+
   attr_accessible :descricao, :nome, :validade_anos, :valor
 
   validates_presence_of :descricao, :nome, :validade_anos, :valor

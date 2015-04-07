@@ -4,15 +4,15 @@ class ProjetosController < ApplicationController
     :only => [:new, :create, :edit, :update, :destroy]
 
     def index
-        @projeto = Projeto.all
+        @projetos = Projeto.all
     end
 
     def new
-        @projeto = Projeto.new
+        @projeto = profissional_da_sessao.projetos.build
     end
 
     def create
-        @projeto = Projeto.new(params[:projeto])
+        @projeto = profissional_da_sessao.projetos.build(params[:projeto])
 
         if @projeto.save
             redirect_to @projeto, :notice => 'Projeto criado com sucesso!'
@@ -26,11 +26,11 @@ class ProjetosController < ApplicationController
     end
 
     def edit
-        @projeto = Projeto.find(params[:id])
+        @projeto = profissional_da_sessao.projetos.find(params[:id])
     end
 
     def update
-        @projeto = Projeto.find(params[:id])
+        @projeto = profissional_da_sessao.projetos.find(params[:id])
 
         if @projeto.update_attributes(params[:projeto])
             redirect_to @projeto, :notice => 'Projeto atualizado com sucesso!'
@@ -41,7 +41,7 @@ class ProjetosController < ApplicationController
 
 
     def destroy
-        @projeto = Projeto.find(params[:id])
+        @projeto = profissional_da_sessao.projetos.find(params[:id])
         @projeto.destroy
 
         redirect_to projetos_url

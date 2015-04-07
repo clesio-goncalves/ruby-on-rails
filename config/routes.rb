@@ -2,9 +2,11 @@ Trabalho::Application.routes.draw do
 
   resources :profissionals
 
-  resources :projetos
-
   resources :empresas
+
+  resources :projetos do
+    resources :elaboracaos, :module => :projetos
+  end
     
   resource :profissional_sessions, :only => [:create, :new, :destroy]
 

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  projeto: 
+  empresa: 
+  profissional: 
+  data_elaboracao: 2015-04-03
+  conclusao: MyText
+  recomendacoes: MyText
+
+two:
+  projeto: 
+  empresa: 
+  profissional: 
+  data_elaboracao: 2015-04-03
+  conclusao: MyText
+  recomendacoes: MyText

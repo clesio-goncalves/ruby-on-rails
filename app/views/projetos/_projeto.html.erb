@@ -1,0 +1,25 @@
+<article class="projeto_empresa">
+    <h2><%= link_to projeto.nome, projeto %></h2>
+    <span>
+        <%= t '.proprietario_html',
+            :proprietario => projeto.profissional.nome,
+            :quando => l(projeto.created_at, :format => :short) %>
+    </span>
+
+    <p>
+        Valor: <%= projeto.valor %> —
+        Validade em anos: <%= projeto.validade_anos %>
+    </p>
+
+    <p><%= projeto.descricao %></p>
+
+    <% if belongs_to_profissional(projeto) %>
+        <ul>
+            <li><%= link_to "Editar", edit_projeto_path(projeto) %></li>
+            <li><%= link_to "Remover", projeto_path(projeto),
+                        :method => :delete, :data => 
+                        {:confirm => 'Você tem certeza que quer remover?'}
+                %></li>
+        </ul>
+    <% end %>
+</article>

@@ -34,3 +34,10 @@ pt-BR:
         submit:
             profissional_session:
                 create: 'Entrar'
+
+    projetos:
+        projeto:
+            proprietario_html: '&mdash; %{proprietario} (%{quando})'
+    empresas:
+        empresa:
+            proprietario_html: '&mdash; %{proprietario} (%{quando})'
